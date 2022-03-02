@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "news-recommender-system"
+version = "0.1.0"
+description = "RL based news recommender system"
+authors = ["Hanieh Mahdavi"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.4.1"
+numpy = "^1.22.2"
+scikit-learn = "^1.0.2"
+nltk = "^3.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
