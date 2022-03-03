@@ -1,4 +1,5 @@
 dataset
 env
 .dist
+.vscode
 __pycache__
