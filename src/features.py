@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 from sklearn.pipeline import Pipeline
-from sklearn.feature_extraction.text import TfidfVectorizer 
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
 
 import string
@@ -11,15 +11,16 @@ import re
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+
 # nltk.download('stopwords')
 # nltk.download('punkt')
 
-from load_dataset import get_train_datasets, get_dataset_info
+from load_dataset import load_train_datasets, get_dataset_info, save_dataset
 
 """Exploratory Data Analysis"""
 
 """read dataset"""
-behaviors, news = get_train_datasets()
+behaviors, news = load_train_datasets()
 get_dataset_info(behaviors=behaviors, news=news)
 
 """checking news providers using regex"""
@@ -30,7 +31,8 @@ get_dataset_info(behaviors=behaviors, news=news)
 # provider = get_news_provider(news)
 # print(provider.value_counts())
 
-class Features():
+
+class Features:
     def __init__(self, news_df: pd.DataFrame, behaviors_df: pd.DataFrame) -> None:
         # tfidf dimension reduction parameter
         self.tfidf_n_component = 64
@@ -47,46 +49,48 @@ class Features():
     def transform(self, X) -> pd.DataFrame:
         """return behaviors dataframe, news dataframe"""
         self.behaviors_df = (
-            self.behaviors_df   .pipe(self.drop_na_history)
-                                .pipe(self.to_datetime)
-                                .pipe(self.to_list_history)
-                                .pipe(self.to_list_impression)
-                                .pipe(self.history_click_count)
-                                .pipe(self.to_dict_impression)
-                                .pipe(self.drop_behavior_cols)
-                            )
+            self.behaviors_df.pipe(self.drop_na_history)
+            .pipe(self.to_datetime)
+            .pipe(self.to_list_history)
+            .pipe(self.to_list_impression)
+            .pipe(self.history_click_count)
+            .pipe(self.to_dict_impression)
+            .pipe(self.drop_behavior_cols)
+        )
 
-        self.news_df = self.__merg_dfs__(self.news_df, self.__dict_to_df__(self.history_dict, 'History Click Count'))
+        self.news_df = self.__merg_dfs__(
+            self.news_df, self.__dict_to_df__(self.history_dict, "History Click Count")
+        )
 
         self.news_df = (
-            self.news_df    .pipe(self.news_popularity)
-                            .pipe(self.news_cat_one_hot)
-                            .pipe(self.news_subcat_one_hot)
-                            .pipe(self.news_title_tfidf)
-                            .pipe(self.drop_news_cols)
-                        )
+            self.news_df.pipe(self.news_popularity)
+            .pipe(self.news_cat_one_hot)
+            .pipe(self.news_subcat_one_hot)
+            .pipe(self.news_title_tfidf)
+            .pipe(self.drop_news_cols)
+        )
 
         return self.behaviors_df, self.news_df
 
     def drop_na_history(self, df: pd.DataFrame) -> pd.DataFrame:
-        df.dropna(subset=['History'], inplace=True)
-        print('... done with drop_na_history() ...')
+        df.dropna(subset=["History"], inplace=True)
+        print("... done with drop_na_history() ...")
         return df
 
     def to_datetime(self, df: pd.DataFrame) -> pd.DataFrame:
-        df['Time'] = df['Time'].astype('datetime64[ns]')
-        df.sort_values(by=['Time'], ignore_index=True, inplace=True)
-        print('... done with to_datetime() ...')
+        df["Time"] = df["Time"].astype("datetime64[ns]")
+        df.sort_values(by=["Time"], ignore_index=True, inplace=True)
+        print("... done with to_datetime() ...")
         return df
 
     def to_list_history(self, df: pd.DataFrame) -> pd.DataFrame:
-        df['History'] = df['History'].apply(lambda x: x[0: len(x)].split(' '))
-        print('... done with to_list_history() ...')
+        df["History"] = df["History"].apply(lambda x: x[0 : len(x)].split(" "))
+        print("... done with to_list_history() ...")
         return df
 
     def to_list_impression(self, df: pd.DataFrame) -> pd.DataFrame:
-        df['Impressions'] = df['Impressions'].apply(lambda x: x[0: len(x)].split(' '))
-        print('... done with to_list_impression() ...')
+        df["Impressions"] = df["Impressions"].apply(lambda x: x[0 : len(x)].split(" "))
+        print("... done with to_list_impression() ...")
         return df
 
     def history_click_count(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -95,86 +99,105 @@ class Features():
                 value = self.history_dict.get(news_id)
                 value += 1
                 self.history_dict[news_id] = value
-        df['History'].apply(__clicks_count__)
-        print('... done with history_click_count() ...')
+
+        df["History"].apply(__clicks_count__)
+        print("... done with history_click_count() ...")
         return df
 
     def to_dict_impression(self, df: pd.DataFrame) -> pd.DataFrame:
         def __keep_dict__(impression: list) -> dict:
             news = dict()
             for imp in impression:
-                split = imp.split('-')
+                split = imp.split("-")
                 news_id = split[0]
                 news_value = split[1]
                 news.update({news_id: news_value})
             return news
-        df['Impressions'] = df['Impressions'].apply(__keep_dict__)
-        print('... done with to_dict_impression() ...')
+
+        df["Impressions"] = df["Impressions"].apply(__keep_dict__)
+        print("... done with to_dict_impression() ...")
         return df
 
     def drop_behavior_cols(self, df: pd.DataFrame) -> pd.DataFrame:
-        print('... done with drop_behavior_cols() ...')
-        return df.drop(['Impression ID'], axis=1)
+        print("... done with drop_behavior_cols() ...")
+        return df.drop(["Impression ID"], axis=1)
 
     def news_popularity(self, df: pd.DataFrame) -> pd.DataFrame:
-        df['Popularity'] = df['History Click Count']
-        print('... done with news_popularity() ...')
+        df["Popularity"] = df["History Click Count"]
+        print("... done with news_popularity() ...")
         return df
 
     def news_cat_one_hot(self, df: pd.DataFrame) -> pd.DataFrame:
-        print('... done with news_cat_one_hot() ...')
-        return pd.get_dummies(df, columns=['Category'])
+        print("... done with news_cat_one_hot() ...")
+        return pd.get_dummies(df, columns=["Category"])
 
     def news_subcat_one_hot(self, df: pd.DataFrame) -> pd.DataFrame:
-        print('... done with news_subcat_one_hot() ...')
-        return pd.get_dummies(df, columns=['SubCategory'])
+        print("... done with news_subcat_one_hot() ...")
+        return pd.get_dummies(df, columns=["SubCategory"])
 
     def news_title_tfidf(self, df: pd.DataFrame) -> pd.DataFrame:
         def __preprocessor__(text: str) -> str:
-            text = text.translate(str.maketrans(string.digits, ' '*len(string.digits)))
-            text = text.translate(str.maketrans(string.punctuation, ' '*len(string.punctuation)))
+            text = text.translate(
+                str.maketrans(string.digits, " " * len(string.digits))
+            )
+            text = text.translate(
+                str.maketrans(string.punctuation, " " * len(string.punctuation))
+            )
             return text
+
         def __tokenizer__(text: str) -> str:
             return word_tokenize(text)
-        vectorizer = TfidfVectorizer(preprocessor=__preprocessor__,
-                                     tokenizer=__tokenizer__,
-                                     stop_words=stopwords.words('english'))
-        tfidf = pd.DataFrame.sparse.from_spmatrix(vectorizer.fit_transform(df['Title']))
+
+        vectorizer = TfidfVectorizer(
+            preprocessor=__preprocessor__,
+            tokenizer=__tokenizer__,
+            stop_words=stopwords.words("english"),
+        )
+        tfidf = pd.DataFrame.sparse.from_spmatrix(vectorizer.fit_transform(df["Title"]))
         t_svd = TruncatedSVD(n_components=self.tfidf_n_component)
         tfidf_svd = pd.DataFrame(t_svd.fit_transform(tfidf))
-        print('... done with news_title_tfidf() ...')
+        print("... done with news_title_tfidf() ...")
         return pd.concat([df, tfidf_svd], axis=1)
 
     def drop_news_cols(self, df: pd.DataFrame) -> pd.DataFrame:
-        print('... done with drop_news_cols() ...')
-        return df.drop(['Title',
-                        'Abstract',
-                        'URL', 
-                        'Title Entities',
-                        'Abstract Entities',
-                        'History Click Count'], axis=1)
+        print("... done with drop_news_cols() ...")
+        return df.drop(
+            [
+                "Title",
+                "Abstract",
+                "URL",
+                "Title Entities",
+                "Abstract Entities",
+                "History Click Count",
+            ],
+            axis=1,
+        )
 
     def __create_news_dict__(self, df: pd.DataFrame) -> pd.DataFrame:
-        return {row: 0 for row in df['News ID']}
+        return {row: 0 for row in df["News ID"]}
 
     def __dict_to_df__(self, news_dict: dict, col_name: str) -> pd.DataFrame:
-        df = pd.DataFrame(news_dict.values(), index=news_dict.keys()).rename(columns={0: col_name})
-        df.index.names = ['News ID']
+        df = pd.DataFrame(news_dict.values(), index=news_dict.keys()).rename(
+            columns={0: col_name}
+        )
+        df.index.names = ["News ID"]
         return df
 
-    def __merg_dfs__(self, first_df: pd.DataFrame, second_df: pd.DataFrame) -> pd.DataFrame:
-        return pd.merge(first_df, second_df, on='News ID')
+    def __merg_dfs__(
+        self, first_df: pd.DataFrame, second_df: pd.DataFrame
+    ) -> pd.DataFrame:
+        return pd.merge(first_df, second_df, on="News ID")
 
-N = news.copy()
+
 B = behaviors.copy()
+N = news.copy()
 
-estimators = [('features', Features(news_df=N, behaviors_df=B))]
+estimators = [("features", Features(news_df=N, behaviors_df=B))]
 pipe = Pipeline(estimators)
 pipe.fit([N, B])
-N, B = pipe.transform([N, B])
+B, N = pipe.transform([N, B])
 
-print(N.shape)
-print(N.head())
+get_dataset_info(behaviors=B, news=N)
 
-print(B.shape)
-print(B.head())
+save_dataset(df=B, name="behaviors")
+save_dataset(df=N, name="news")
