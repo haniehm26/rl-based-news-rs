@@ -12,11 +12,13 @@ from sklearn.metrics import f1_score, precision_score, recall_score
 
 from src.load_dataset import load_featured_dataset, get_dataset_info, save_dataset
 
+
 """load datasets"""
 B, N = load_featured_dataset()
 get_dataset_info(behaviors=B, news=N)
 
-"""basic models"""
+
+"""some random news"""
 target_news = "N45124"
 
 
@@ -36,8 +38,8 @@ def find_news_features(news: list) -> np.ndarray:
     return np.mean(array, axis=0)
 
 
-def keep_last3(x: str) -> list:
-    x = eval(x)
+def keep_last3(x: list) -> list:
+    x = eval(X)
     return x[-3:]
 
 
@@ -56,12 +58,8 @@ print("dataset shape:", B.shape)
 # print(B.head())
 # save_dataset(df=B, name="mean_f")
 
-mean_f = pd.read_csv(
-    "D:\\Rahnema\\News Reccomender System\\dataset\\mean_f.tsv", sep="\t"
-)
-mean_f["mean_f"] = mean_f["mean_f"].apply(
-    lambda x: np.fromstring(x[1:-1], dtype=float, sep=" ")
-)
+mean_f = pd.read_csv("D:\\Rahnema\\News Reccomender System\\dataset\\mean_f.tsv", sep="\t")
+mean_f["mean_f"] = mean_f["mean_f"].apply(lambda x: np.fromstring(x[1:-1], dtype=float, sep=" "))
 
 df = mean_f.copy()
 df = pd.DataFrame(df["mean_f"].apply(pd.Series))
@@ -98,7 +96,7 @@ rf = RandomForestClassifier(max_depth=250).fit(X_train, y_train)
 y_pred_rf = rf.predict(X_test)
 
 
-def print_scores(model, y_test, y_pred):
+def print_scores(model, y_test, y_pred) -> None:
     y_pred = y_pred.astype(int)
     y_test = y_test.astype(int)
     print("--- result of", model, "---")
