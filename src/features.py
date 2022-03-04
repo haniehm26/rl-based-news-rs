@@ -17,11 +17,11 @@ from nltk.corpus import stopwords
 
 from load_dataset import load_train_datasets, get_dataset_info, save_dataset
 
-"""Exploratory Data Analysis"""
 
 """read dataset"""
 behaviors, news = load_train_datasets()
 get_dataset_info(behaviors=behaviors, news=news)
+
 
 """checking news providers using regex"""
 # def get_news_provider(df: pd.DataFrame):
@@ -50,7 +50,8 @@ class Features:
         """return behaviors dataframe, news dataframe"""
         self.behaviors_df = (
             self.behaviors_df.pipe(self.drop_na_history)
-            .pipe(self.to_datetime)
+            .pipe(self.keep_unique_users)
+            # .pipe(self.to_datetime)
             .pipe(self.to_list_history)
             .pipe(self.to_list_impression)
             .pipe(self.history_click_count)
@@ -75,6 +76,11 @@ class Features:
     def drop_na_history(self, df: pd.DataFrame) -> pd.DataFrame:
         df.dropna(subset=["History"], inplace=True)
         print("... done with drop_na_history() ...")
+        return df
+
+    def keep_unique_users(self, df: pd.DataFrame) -> pd.DataFrame:
+        df.drop_duplicates(subset=["User ID"], keep="last", inplace=True, ignore_index=True)
+        print("... done with keep_unique_users() ...")
         return df
 
     def to_datetime(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -137,12 +143,8 @@ class Features:
 
     def news_title_tfidf(self, df: pd.DataFrame) -> pd.DataFrame:
         def __preprocessor__(text: str) -> str:
-            text = text.translate(
-                str.maketrans(string.digits, " " * len(string.digits))
-            )
-            text = text.translate(
-                str.maketrans(string.punctuation, " " * len(string.punctuation))
-            )
+            text = text.translate(str.maketrans(string.digits, " " * len(string.digits)))
+            text = text.translate(str.maketrans(string.punctuation, " " * len(string.punctuation)))
             return text
 
         def __tokenizer__(text: str) -> str:
@@ -177,9 +179,7 @@ class Features:
         return {row: 0 for row in df["News ID"]}
 
     def __dict_to_df__(self, news_dict: dict, col_name: str) -> pd.DataFrame:
-        df = pd.DataFrame(news_dict.values(), index=news_dict.keys()).rename(
-            columns={0: col_name}
-        )
+        df = pd.DataFrame(news_dict.values(), index=news_dict.keys()).rename(columns={0: col_name})
         df.index.names = ["News ID"]
         return df
 
