@@ -1,5 +1,7 @@
-from numpy import void
+import numpy as np
 import pandas as pd
+
+from ast import literal_eval
 
 TRAIN_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\train\\"
 DEV_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\dev\\"
@@ -94,6 +96,17 @@ def save_dataset(df: pd.DataFrame, name: str) -> None:
 
 def load_featured_dataset() -> pd.DataFrame:
     """return behaviors, news"""
-    behaviors = pd.read_csv(SAVE_PATH + "behaviors.tsv", sep="\t")
+    behaviors = pd.read_csv(
+        SAVE_PATH + "behaviors.tsv",
+        sep="\t",
+        # dtype={"Time": 'str'},
+        converters={"History": literal_eval, "Impression": literal_eval},
+        # parse_dates=["Time"]
+    )
     news = pd.read_csv(SAVE_PATH + "news.tsv", sep="\t")
     return behaviors, news
+
+
+def load_news_dataset() -> pd.DataFrame:
+    """return news"""
+    return news
