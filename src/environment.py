@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+
 from .load_dataset import load_news_dataset
 
 
@@ -42,10 +43,11 @@ class Environment:
         self, current_state: np.ndarray, action: str, reward: int, user_id: str
     ) -> np.ndarray:
         if reward == 1:
+            action_vector = self.news_df[self.news_df["News ID"] == action].values[0][1:-1]
+            new_state = (current_state + action_vector) / 2
             history = self.behavior_df[self.behavior_df["User ID"] == user_id]["History"].values[0]
             history.append(action)
             self.behavior_df[self.behavior_df["User ID"] == user_id]["History"].replace(history)
-            new_state = self.get_state(user_id)
             return new_state
         elif reward == -1:
             new_state = current_state
