@@ -8,8 +8,8 @@ import re
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-# nltk.download('stopwords')
-# nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('punkt')
 import requests
 from bs4 import BeautifulSoup
 from load_dataset import load_train_datasets, get_dataset_info, save_dataset
@@ -62,7 +62,7 @@ class Features:
 
         self.news_df = (
             self.news_df.pipe(self.news_popularity)
-            .pipe(self.add_news_date)
+            # .pipe(self.add_news_date)
             .pipe(self.news_cat_one_hot)
             .pipe(self.news_subcat_one_hot)
             .pipe(self.news_title_tfidf)
