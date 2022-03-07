@@ -2,10 +2,15 @@ import numpy as np
 import pandas as pd
 from ast import literal_eval
 
-TRAIN_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\train\\"
-DEV_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\dev\\"
-TEST_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\test\\"
-SAVE_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\"
+# TRAIN_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\train\\"
+# DEV_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\dev\\"
+# TEST_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\test\\"
+# SAVE_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\"
+
+TRAIN_PATH = "C:\\Users\\ASUS\\Desktop\\Hanieh\\dataset\\train\\"
+DEV_PATH = "C:\\Users\\ASUS\\Desktop\\Hanieh\\dataset\\dev\\"
+TEST_PATH = "C:\\Users\\ASUS\\Desktop\\Hanieh\\dataset\\test\\"
+SAVE_PATH = "C:\\Users\\ASUS\\Desktop\\Hanieh\\dataset\\"
 
 news = pd.concat(
     [
