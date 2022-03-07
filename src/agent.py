@@ -14,23 +14,22 @@ class Agent:
         self.epsilon_min = EPSILON_MIN
         self.epsilon_decay = EPSILON_DECAY
         self.step_counter = 0
-        # action_space is news categories [0-17] = 18
         self.action_space = action_space
         self.action_count = {cat: 0 for cat in self.action_space}
         self.state, self.action, self.reward, self.next_state = None, None, None, None
         self.policy_net = DQN().to(device)
 
-    def act(self, state: np.ndarray) -> str:
-        # exploration = np.random.uniform(0, 1) < self.__get_epsilon__()
-        # if exploration:
-        #     action = self.action_space[np.random.randint(0, len(self.action_space))]
-        # else:
-        with torch.no_grad():
-            prediction = self.policy_net(state)
-            action_index = torch.argmax(prediction)
-            action = self.action_space[action_index]
-        self.action_count[action] += 1
-        return action, prediction
+    def act(self, state: torch.Tensor) -> str:
+        exploration = np.random.uniform(0, 1) < self.__get_epsilon__()
+        if exploration:
+            action_tensor = torch.rand([(len(self.action_space))], device=device)
+        else:
+            with torch.no_grad():
+                action_tensor = self.policy_net(state)
+        action_index = torch.argmax(action_tensor)
+        action_category = self.action_space[action_index]
+        self.action_count[action_category] += 1
+        return action_category, action_tensor
 
     def get_episode(
         self,
