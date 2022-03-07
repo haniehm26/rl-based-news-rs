@@ -11,6 +11,10 @@ from sklearn.metrics import f1_score, precision_score, recall_score
 from src.load_dataset import load_featured_dataset, get_dataset_info, save_dataset
 
 
+# PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\"
+PATH = "C:\\Users\\ASUS\\Desktop\\Hanieh\\dataset\\"
+
+
 """load datasets"""
 B, N = load_featured_dataset()
 get_dataset_info(behaviors=B, news=N)
@@ -37,8 +41,30 @@ def find_news_features(news: list) -> np.ndarray:
 
 
 def keep_last3(x: list) -> list:
-    x = eval(X)
+    # x = eval(X)
     return x[-3:]
+
+
+def save_mean_f(df):
+    df["last3"] = df["History"][0:10000].apply(keep_last3)
+    df["mean_f"] = df["last3"][0:10000].apply(find_news_features)
+    print(df.columns)
+    df = df[["User ID", "mean_f"]]
+    df.dropna(inplace=True)
+    print(df.columns)
+    print(df.head())
+    save_dataset(df=df, name="mean_f")
+
+
+def load_mean_f(df):
+    mean_f = pd.read_csv(PATH + "mean_f.tsv", sep="\t")
+    copy_mean_f = mean_f.copy()
+    copy_mean_f["mean_f"] = copy_mean_f["mean_f"].apply(lambda x: np.fromstring(x[1:-1], dtype=float, sep=" "))
+    copy_mean_f = pd.DataFrame(copy_mean_f["mean_f"].apply(pd.Series))
+    copy_mean_f = MinMaxScaler().fit_transform(copy_mean_f)
+    copy_mean_f = pd.DataFrame(copy_mean_f)
+    copy_mean_f["label"] = mean_f.merge(df, on="User ID", how="left")["label"]
+    return copy_mean_f
 
 
 print("target news is:", target_news)
@@ -47,24 +73,8 @@ B["label"] = B["Impressions"].apply(create_label)
 B.dropna(inplace=True)
 print("dataset shape:", B.shape)
 
-# B["last3"] = B["History"][0:1000].apply(keep_last3)
-# B["mean_f"] = B["last3"][0:1000].apply(find_news_features)
-# print(B.columns)
-# B = B[["User ID", "mean_f"]]
-# B.dropna(inplace=True)
-# print(B.columns)
-# print(B.head())
-# save_dataset(df=B, name="mean_f")
-
-mean_f = pd.read_csv("D:\\Rahnema\\News Reccomender System\\dataset\\mean_f.tsv", sep="\t")
-mean_f["mean_f"] = mean_f["mean_f"].apply(lambda x: np.fromstring(x[1:-1], dtype=float, sep=" "))
-
-df = mean_f.copy()
-df = pd.DataFrame(df["mean_f"].apply(pd.Series))
-df = MinMaxScaler().fit_transform(df)
-df = pd.DataFrame(df)
-df["label"] = mean_f.merge(B, on="User ID", how="left")["label"]
-print(df.head())
+# save_mean_f(df=B)
+df = load_mean_f(df=B)
 
 y = df["label"]
 X = df.drop(["label"], axis=1)
