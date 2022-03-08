@@ -65,7 +65,6 @@ def optimize_model(
         .gather(1, action_batch.type(torch.int64).unsqueeze(0))
         .squeeze(0)
     )
-    print("STATE_VALUE", state_action_values)
     next_state_values = target_net(next_state_batch).max(1)[0].detach()
     expected_state_action_values = (next_state_values * GAMMA) + reward_batch
     criterion = nn.SmoothL1Loss()
