@@ -1,10 +1,13 @@
 import pandas as pd
 import numpy as np
+
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
+
 import string
 import re
+
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -158,18 +161,6 @@ class Features:
         tfidf_svd = pd.DataFrame(t_svd.fit_transform(tfidf))
         print("... done with news_title_tfidf() ...")
         return pd.concat([df, tfidf_svd], axis=1)
-
-    def add_news_date(self, df:pd.DataFrame) -> pd.DataFrame:
-        def __get_news_date__(url: str) -> str:
-            if url[:5] == 'https':
-                html_doc = requests.get(url)
-                soup = BeautifulSoup(html_doc.text, 'html.parser')
-                date = [x.text for x in soup.select(".date time")][0].strip()
-            else:
-                date = np.nan
-        df['Release Date'] = df['URL'].apply(__get_news_date__)
-        print("... done with get_news_date() ...")
-        return  df
 
     def drop_news_cols(self, df: pd.DataFrame) -> pd.DataFrame:
         print("... done with drop_news_cols() ...")

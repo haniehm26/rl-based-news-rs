@@ -1,11 +1,9 @@
 import numpy as np
-import torch
-from .dqn import DQN, Episode, device
 
+from collections import deque
 
-EPSILON_START = 0.8
-EPSILON_MIN = 0.02
-EPSILON_DECAY = 10**3
+EPSILON = 0.01
+MEMORY_MAX_SIZE = 1000
 
 
 class Agent:
@@ -16,8 +14,8 @@ class Agent:
         self.step_counter = 0
         self.action_space = action_space
         self.action_count = {cat: 0 for cat in self.action_space}
+        self.memory = deque(maxlen=MEMORY_MAX_SIZE)
         self.state, self.action, self.reward, self.next_state = None, None, None, None
-        self.policy_net = DQN().to(device)
 
     def act(self, state: torch.Tensor) -> str:
         exploration = np.random.uniform(0, 1) < self.__get_epsilon__()
@@ -32,11 +30,7 @@ class Agent:
         return action_category, action_tensor
 
     def get_episode(
-        self,
-        state: np.ndarray = None,
-        action: str = None,
-        reward: int = None,
-        next_state: np.ndarray = None,
+        self, state: np.ndarray, action: str, reward: int, next_state: np.ndarray
     ) -> tuple:
         self.state, self.action, self.reward, self.next_state = (
             state,
@@ -44,18 +38,14 @@ class Agent:
             reward,
             next_state,
         )
-        episode = Episode(
-            state,
-            action,
-            reward,
-            next_state,
+        episode = (
+            self.state,
+            self.action,
+            self.reward,
+            self.next_state,
         )
         return episode
 
-    def __get_epsilon__(self):
-        epsilon = max(
-            self.epsilon_min,
-            self.epsilon_start - self.step_counter / self.epsilon_decay,
-        )
-        self.step_counter += 1
-        return epsilon
+    def update_memory(self, episode: tuple) -> deque:
+        self.memory.append(episode)
+        return self.memory

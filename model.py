@@ -3,7 +3,6 @@ import torch.optim as optim
 import random
 from src.agent import Agent
 from src.environment import Environment
-from src.dqn import DQN, ReplayMemory, optimize_model, device
 from src.load_dataset import load_featured_dataset
 
 

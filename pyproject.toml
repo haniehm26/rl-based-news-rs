@@ -11,8 +11,6 @@ numpy = "^1.22.2"
 scikit-learn = "^1.0.2"
 nltk = "^3.7"
 black = "^22.1.0"
-torch = "^1.10.2"
-beautifulsoup4 = "^4.10.0"
 
 [tool.poetry.dev-dependencies]
 

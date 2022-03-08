@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+
 from ast import literal_eval
 
 # TRAIN_PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\train\\"
@@ -88,9 +89,9 @@ def get_dataset_info(behaviors: pd.DataFrame, news: pd.DataFrame) -> None:
     print("news shape:")
     print(news.shape)
     print("behaviors head:")
-    print(behaviors.head(2))
+    print(behaviors.head())
     print("news head:")
-    print(news.head(2))
+    print(news.head())
 
 
 def save_dataset(df: pd.DataFrame, name: str) -> None:

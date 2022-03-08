@@ -49,7 +49,6 @@ class Environment:
             history = self.behavior_df[self.behavior_df["User ID"] == user_id]["History"].values[0]
             history.append(action)
             self.behavior_df[self.behavior_df["User ID"] == user_id]["History"].replace(history)
-            new_state = self.get_state(user_id)
             return new_state
         elif reward[0].item() == -1:
             new_state = current_state
