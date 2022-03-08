@@ -4,6 +4,7 @@ import random
 from src.agent import Agent
 from src.environment import Environment
 from src.load_dataset import load_featured_dataset
+from src.dqn import ReplayMemory, DQN, optimize_model, device
 
 
 TARGET_UPDATE = 5
@@ -24,7 +25,6 @@ target_net.load_state_dict(policy_net.state_dict())
 target_net.eval()
 optimizer = optim.RMSprop(policy_net.parameters())
 
-print(env.get_action_space())
 
 """specify user"""
 # user_id = input("Enter your ID: ")
