@@ -11,6 +11,9 @@ numpy = "^1.22.2"
 scikit-learn = "^1.0.2"
 nltk = "^3.7"
 black = "^22.1.0"
+fastapi = "^0.75.0"
+uvicorn = "^0.17.5"
+mlflow = "^1.24.0"
 
 [tool.poetry.dev-dependencies]
 
