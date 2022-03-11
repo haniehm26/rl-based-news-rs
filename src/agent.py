@@ -23,11 +23,14 @@ class Agent:
     def act(self, state: torch.Tensor) -> str:
         exploration = np.random.uniform(0, 1) < self.__get_epsilon__()
         if exploration:
-            action_tensor = torch.rand([(len(self.action_space))], device=device)
+            action_tensor = torch.zeros([(len(self.action_space))], device=device)
+            random_index = torch.randint(low=0, high=len(self.action_space), size=(1, 1))
+            action_tensor[random_index[0].item()] = 1
         else:
             with torch.no_grad():
                 action_tensor = self.policy_net(state)
         action_index = torch.argmax(action_tensor)
+        action_tensor[action_index] = 1
         action_category = self.action_space[action_index]
         self.action_count[action_category] += 1
         return action_category, action_tensor

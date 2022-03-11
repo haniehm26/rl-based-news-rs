@@ -58,17 +58,17 @@ def optimize_model(
     batch = Episode(*zip(*episodes))
     state_batch = torch.cat(batch.state).reshape(BATCH_SIZE, -1)
     action_batch = torch.cat(batch.action)
-    reward_batch = torch.cat(batch.reward)
+    reward_batch = torch.cat(batch.reward).reshape(BATCH_SIZE, -1).expand(-1, OUTPUT_SIZE).reshape(-1)
     next_state_batch = torch.cat(batch.next_state).reshape(BATCH_SIZE, -1)
     state_action_values = (
         policy_net(state_batch)
         .gather(1, action_batch.type(torch.int64).unsqueeze(0))
         .squeeze(0)
     )
-    next_state_values = target_net(next_state_batch).max(1)[0].detach()
+    next_state_values = target_net(next_state_batch).reshape(-1)
     expected_state_action_values = (next_state_values * GAMMA) + reward_batch
     criterion = nn.SmoothL1Loss()
-    loss = criterion(state_action_values, expected_state_action_values.unsqueeze(1))
+    loss = criterion(state_action_values, expected_state_action_values)
     optimizer.zero_grad()
     loss.backward()
     for param in policy_net.parameters():
