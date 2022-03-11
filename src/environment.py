@@ -73,8 +73,13 @@ class Environment:
     def get_news_info(self, news_id: str) -> str:
         NEWS_DATASET = load_news_dataset()
         news = NEWS_DATASET[NEWS_DATASET["News ID"] == str(news_id)]
-        title = news["Title"]
-        return title.values[0]
+        title = news["Title"].values[0]
+        abstarct = news["Abstract"]
+        if abstarct.empty:
+            abstarct = 'unavailable abstract!'
+        else:
+            abstarct = abstarct.values[0]
+        return title, abstarct
 
     def __get_news_categories__(self) -> list:
         categories = self.news_df.columns[2 : 2 + N_CATEGORIES].values
