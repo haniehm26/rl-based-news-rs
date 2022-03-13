@@ -5,7 +5,7 @@ class User(BaseModel):
     user_id: StrictStr
 
 class Response(BaseModel):
-    user_response: StrictStr
+    user_response: int
 
 class News(BaseModel):
     news_id : StrictStr
