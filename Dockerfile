@@ -7,8 +7,8 @@ COPY . apk/
 WORKDIR apk/
 
 RUN apt-get update \
-    && get upgrade -y \
-    && get install -y git \
+    && apt-get upgrade -y \
+    && apt-get install -y git \
     && pip install poetry \
     && poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
