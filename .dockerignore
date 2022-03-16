@@ -1,4 +1,5 @@
 src/features.py
+dataset/mean_f.csv
 .gitignore
 basic_model.py
 __pycache__/
