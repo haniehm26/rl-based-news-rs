@@ -10,4 +10,4 @@ class Response(BaseModel):
 class News(BaseModel):
     news_id : StrictStr
     title: StrictStr
-    abstarct: StrictStr
+    abstract: StrictStr
