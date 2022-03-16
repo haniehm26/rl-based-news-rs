@@ -48,7 +48,7 @@ class Model:
         action_category, self.action_tensor = self.agent.act(self.state)
         self.action_news_id = self.env.get_action_news_id(action_category)
         title, abstract = self.env.get_news_info(self.action_news_id)
-        return News(news_id=self.action_news_id, title=title, abstarct=abstract)
+        return News(news_id=self.action_news_id, title=title, abstract=abstract)
 
     def get_user_response(self, user_response: int) -> None:
         print("User Response is:", user_response)
@@ -71,6 +71,6 @@ class Model:
                 step=int(self.iter_counter / LOG_METRIC),
             )
         if self.iter_counter % LOG_MODEL == 0:
-            mlflow.sklearn.log_model(self.policy_net, "test_model")
+            mlflow.pytorch.log_model(self.policy_net, "test_model")
         print("Iteration:", self.iter_counter)
         self.iter_counter += 1
