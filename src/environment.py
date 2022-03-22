@@ -35,10 +35,10 @@ class Environment:
             action_space.append(news_cat)
         return action_space
 
-    def get_reward(self, user_input: str) -> torch.Tensor:
-        if user_input == "yes":
+    def get_reward(self, user_input: int) -> torch.Tensor:
+        if user_input == 1:
             return torch.tensor([1])
-        elif user_input == "no":
+        elif user_input == -1:
             return torch.tensor([-1])
 
     # return new state and updates state in behavior dataframe

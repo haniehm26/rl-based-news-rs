@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RECBrain News</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="https://i.ibb.co/NWcVFS3/Machine-Learning-Session-1-4.png">
+    <meta charset="utf-8">
+    <meta name="description" content="news recommender system based on reinforcement learning">
+    <meta name="author" content="Hanieh Mahdavi">
+    <script type="text/javascript" src="code.js" defer></script>
+</head>
+
+<body>
+    <h2>RECBrain News Recommender System</h2>
+    <form>
+        <label for="user-id">User ID</label>
+        <input type="text" id="user-id" value="">
+        <button type="submit" id="submit-id">Submit</button>
+        <div>
+            <h3 id="news-title">News Title</h3>
+            <p id="news-title-p"></p>
+            <h3 id="news-abst">News Abstract</h3>
+            <p id="news-abst-p"></p>
+        </div>
+        <div>
+            <h3 id="user-response">Read More?</h3>
+            <input type="radio" name="response" id="no" value="no">
+            <label for="no">No</label>
+            <input type="radio" name="response" id="yes" value="yes">
+            <label for="yes">Yes</label>
+            <button type="submit" id="submit-response">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

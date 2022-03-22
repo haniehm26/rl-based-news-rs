@@ -14,6 +14,8 @@ black = "^22.1.0"
 fastapi = "^0.75.0"
 uvicorn = "^0.17.5"
 mlflow = "^1.24.0"
+kafka-python = "^2.0.2"
+torch = "^1.11.0"
 
 [tool.poetry.dev-dependencies]
 

@@ -65,7 +65,6 @@ class Features:
 
         self.news_df = (
             self.news_df.pipe(self.news_popularity)
-            # .pipe(self.add_news_date)
             .pipe(self.news_cat_one_hot)
             .pipe(self.news_subcat_one_hot)
             .pipe(self.news_title_tfidf)

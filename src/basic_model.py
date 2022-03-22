@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.naive_bayes import MultinomialNB, GaussianNB
@@ -9,12 +8,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.metrics import f1_score, precision_score, recall_score
-
 from src.load_dataset import load_featured_dataset, get_dataset_info, save_dataset
-
-
-# PATH = "D:\\Rahnema\\News Reccomender System\\dataset\\"
-PATH = "C:\\Users\\ASUS\\Desktop\\Hanieh\\dataset\\"
 
 
 """load datasets"""
@@ -59,7 +53,7 @@ def save_mean_f(df):
 
 
 def load_mean_f(df):
-    mean_f = pd.read_csv(PATH + "mean_f.tsv", sep="\t")
+    mean_f = pd.read_csv("dataset/mean_f.tsv", sep="\t")
     copy_mean_f = mean_f.copy()
     copy_mean_f["mean_f"] = copy_mean_f["mean_f"].apply(lambda x: np.fromstring(x[1:-1], dtype=float, sep=" "))
     copy_mean_f = pd.DataFrame(copy_mean_f["mean_f"].apply(pd.Series))
