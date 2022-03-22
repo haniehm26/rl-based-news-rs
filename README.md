@@ -2,7 +2,8 @@
 This is a news recommender system based on [MIND](https://www.microsoft.com/en-us/research/publication/mind-a-large-scale-dataset-for-news-recommendation/)
 dataset with an online RL approach.
 
-Recbrain LOGO should be added
+<p align="center"> <img src="images/logo-titled.png" alt="Logo" width="50%" height="50%"> </p>
+
 
 ## Table of Content
 - General Info
@@ -16,13 +17,16 @@ Recbrain LOGO should be added
 ## General Info
 
 ### Who We Are?
-We are RecBrain, four talented data science enthusiasts:
-+ [Hanieh Mahdavi]()
-+ [Mohammadamin Farajzadeh]()
-+ [Mahta Zarean]()
-+ [Amir Asrzad]()
 
-Gather together in [Rahnema College]() Machine Learning Internship Program with mentorship of [Matin Zivdar]().
+<!-- <p align="center"> <img src="images/logo.png" alt="Logo" width="160" height="160"> </p> -->
+
+We are RecBrain, four data science enthusiasts:
++ [Hanieh Mahdavi](https://github.com/haniehm26)
++ [Mohammadamin Farajzadeh](https://github.com/mafzs)
++ [Mahta Zarean](https://github.com/mahtaz)
++ [Amir Asrzad](https://github.com/AMIRASRZAD)
+
+Gather together in [Rahnema College](https://rahnemacollege.com/) Machine Learning Internship Program with mentorship of [Matin Zivdar](https://github.com/zivdar001matin).
 
 ### What Is Our Project About?
 We worked on a News Recommender System based on Reinforcement Learning models.
