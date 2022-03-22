@@ -1,15 +1,19 @@
 // set onclick
 document.getElementById("submit-id").onclick = submit_id;
 document.getElementById("submit-response").onclick = submit_response;
+
+submit_id_btn = document.getElementById('submit-id')
+submit_response_btn = document.getElementById('submit-response')
+
 var disable_submit = true
-document.getElementById('submit-response').disabled = disable_submit;
+submit_response_btn.disabled = disable_submit;
 
 function submit_id(event) {
-    document.getElementById('submit-id').disabled = !disable_submit;
+    submit_id_btn.disabled = !disable_submit;
     let user_id = document.getElementById("user-id").value;
     recommend_news(user_id)
-    document.getElementById('submit-id').disabled = disable_submit;
-    document.getElementById('submit-response').disabled = !disable_submit;
+    submit_id_btn.disabled = disable_submit;
+    submit_response_btn.disabled = !disable_submit;
     // to stable the result and prevent refreshing the window too fast
     event.preventDefault();
 }
@@ -25,11 +29,12 @@ function submit_response(event) {
         response = -1
     }
     get_user_response(response)
-    document.getElementById('submit-id').disabled = !disable_submit;
-    document.getElementById('submit-response').disabled = disable_submit;
+    submit_id_btn.disabled = !disable_submit;
+    submit_response_btn.disabled = disable_submit;
     let element = document.getElementsByName("response");
-    for (let i = 0; i < element.length; i++)
+    for (let i = 0; i < element.length; i++) {
         element[i].checked = false;
+    }
     // to stable the result and prevent refreshing the window too fast
     event.preventDefault();
 }
