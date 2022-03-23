@@ -1,25 +1,19 @@
-# RecBrain Recommender System with Reinforcement Learning
-This is a news recommender system based on [MIND](https://www.microsoft.com/en-us/research/publication/mind-a-large-scale-dataset-for-news-recommendation/)
-dataset with an online RL approach.
-
-<p align="center"> <img src="images/logo-titled.png" alt="Logo" width="50%" height="50%"> </p>
-
+<p align="center">
+    <img src="images/logo-titled.png" width="40%" height="50%">
+  <h3 align="center">News Recommender System with Online Reinforcement Learning</h3>
+  </p>
 
 ## Table of Content
-- General Info
-- Screenshots
-- Technologies
-- Setup
-- Features
-- Status
-- Acknowledgement
+- [General Info](General-Info)
+- [Screenshots](Screenshots)
+- [Technologies](Technologies)
+- [Setup](Setup)
+- [Features](Features)
+- [Status](Status)
+- [Acknowledgement](Acknowledgement)
 
 ## General Info
-
 ### Who We Are?
-
-<!-- <p align="center"> <img src="images/logo.png" alt="Logo" width="160" height="160"> </p> -->
-
 We are RecBrain, four data science enthusiasts:
 + [Hanieh Mahdavi](https://github.com/haniehm26)
 + [Mohammadamin Farajzadeh](https://github.com/mafzs)
@@ -29,7 +23,7 @@ We are RecBrain, four data science enthusiasts:
 Gather together in [Rahnema College](https://rahnemacollege.com/) Machine Learning Internship Program with mentorship of [Matin Zivdar](https://github.com/zivdar001matin).
 
 ### What Is Our Project About?
-We worked on a News Recommender System based on Reinforcement Learning models.
+We implemented a News Recommender System with an Online Reinforcement Learning approach, based on [MIND](https://www.microsoft.com/en-us/research/publication/mind-a-large-scale-dataset-for-news-recommendation/) dataset.
 Our first challenge was how to extract information from news texts and categories that represent precisely the data.
 Second challenge was how to formulate problem in a RL literature. Finally, we had to figure out how to train the model in offline manner.
 
