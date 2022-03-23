@@ -6,9 +6,9 @@
 
 ## Table of Content
 - [General Info](#general-info)
+- [Features](#features)
 - [Technologies](#technologies)
 - [Setup](#setup)
-- [Features](#features)
 - [Screenshots](#screenshots)
 - [About Us](#about-us)
 - [Acknowledgement](#acknowledgement)
@@ -17,6 +17,12 @@
 We implemented a News Recommender System with an Online Reinforcement Learning approach, based on [MIND](https://www.microsoft.com/en-us/research/publication/mind-a-large-scale-dataset-for-news-recommendation/) dataset.
 Our first challenge was how to extract information from news texts and categories that represent precisely the data.
 Second challenge was how to formulate problem in a RL literature. Finally, we had to figure out how to train the model in offline manner.
+
+## Features
++ Designed a Deep Q-Network model using Pytorch
++ Deployed and tracked the model using the MLFlow tool
++ Developed a very straightforward back-end using FastAPI
++ Wrote a Dockerfile and dockerized the whole project
 
 ## Technologies
 + python = 3.9
@@ -30,12 +36,6 @@ Second challenge was how to formulate problem in a RL literature. Finally, we ha
 
 ## Setup
 blah blah blah
-
-## Features
-+ Designed a Deep Q-Network model using Pytorch
-+ Deployed and tracked the model using the MLFlow tool
-+ Developed a very straightforward back-end using FastAPI
-+ Wrote a Dockerfile and dockerized the whole project
 
 ## Screenshots
 <p align="center">
