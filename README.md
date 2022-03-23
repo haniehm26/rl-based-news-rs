@@ -35,7 +35,25 @@ Second challenge was how to formulate problem in a RL literature. Finally, we ha
 + torch = 1.11.0
 
 ## Setup
-blah blah blah
+### Dataset
++ Download [MIND](https://www.microsoft.com/en-us/research/publication/mind-a-large-scale-dataset-for-news-recommendation/) large dataset
++ Create 'dataset' directory
++ Create 'train', 'dev', and 'test' directories inside 'dataset' directory
++ Copy Training Set, paste it in 'train' directory
++ Copy Validation Set, paste it in 'dev' directory
++ Copy Test Set, paste it in 'test' directory
+### Dependencies
++ Install Poetry -> pip install poetry
++ Remove 'poetry.lock' file
++ Install dependencies -> poetry install
+### Features
++ Run 'features.py' -> python src/features.py
+### Server
++ Run 'run.py' -> uvicorn run:app
+### Front-End
++ Open 'front/code.html' in Chrome
+### MLFlow
++ Run mlflow -> mlflow ui
 
 ## Screenshots
 <p align="center">
