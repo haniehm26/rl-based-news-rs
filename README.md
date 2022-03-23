@@ -58,5 +58,5 @@ We are RecBrain, four data science enthusiasts:
 Gather together in [Rahnema College](https://rahnemacollege.com/) Machine Learning Internship Program with mentorship of [Matin Zivdar](https://github.com/zivdar001matin).
 
 ## Acknowledgement
-Special thanks to [Matin Zivdar](https://github.com/zivdar001matin) for his sincerely guidance and mentorship.<br>
-Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantastic internship program, and everyone else who helped us through this project.
+Special thanks to [Matin Zivdar](https://www.linkedin.com/in/matin-zivdar/) for his sincerely guidance and mentorship.<br>
+Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantastic internship program, [Azin Azarkar](https://www.linkedin.com/in/azin-azarkar-8829b6183), [Yasin Orouskhani](https://www.linkedin.com/in/yasinorouskhani/), and everyone else who helped us through this project.
