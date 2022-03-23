@@ -53,7 +53,10 @@ Second challenge was how to formulate problem in a RL literature. Finally, we ha
 blah blah blah
 
 ## Features
-blah blah blah
++ Designed a Deep Q-Network model using Pytorch
++ Deployed and tracked the model using the MLFlow tool
++ Developed a very straightforward back-end using FastAPI
++ Wrote a Dockerfile and dockerized the whole project
 
 ## Status
 blah blah blah
