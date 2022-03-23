@@ -14,7 +14,6 @@ from nltk.corpus import stopwords
 nltk.download('stopwords')
 nltk.download('punkt')
 import requests
-from bs4 import BeautifulSoup
 from load_dataset import load_train_datasets, get_dataset_info, save_dataset
 
 
