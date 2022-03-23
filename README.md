@@ -1,16 +1,17 @@
+<br>
 <p align="center">
     <img src="images/logo-titled.png" width="40%" height="50%">
   <h3 align="center">News Recommender System with Online Reinforcement Learning</h3>
   </p>
 
 ## Table of Content
-- [General Info](General-Info)
-- [Screenshots](Screenshots)
-- [Technologies](Technologies)
-- [Setup](Setup)
-- [Features](Features)
-- [Status](Status)
-- [Acknowledgement](Acknowledgement)
+- [General Info](#general-info)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Features](#features)
+- [Status](#status)
+- [Acknowledgement](#acknowledgement)
 
 ## General Info
 ### Who We Are?
@@ -28,7 +29,15 @@ Our first challenge was how to extract information from news texts and categorie
 Second challenge was how to formulate problem in a RL literature. Finally, we had to figure out how to train the model in offline manner.
 
 ## Screenshots
-blah blah blah
+<p align="center">
+    <img src="images/front.png" width="80%" height="100%">
+  <h4 align="center">Project Front-End Sample</h4>
+  </p>
+  <br>
+<p align="center">
+    <img src="images/mlflow-metrics.png" width="80%" height="100%">
+  <h4 align="center">Reward Cumulative Sum Metric Chart</h4>
+  </p>
 
 ## Technologies
 + python = 3.9
