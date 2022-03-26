@@ -23,6 +23,7 @@ Second challenge was how to formulate problem in a RL literature. Finally, we ha
 + Deployed and tracked the model using the MLFlow tool
 + Developed a very straightforward back-end using FastAPI
 + Wrote a Dockerfile and dockerized the whole project
+Docker image is available at [this docker hub repository](https://hub.docker.com/repository/docker/haniehm26/recbrain)
 
 ## Technologies
 + python = 3.9
