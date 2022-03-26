@@ -35,25 +35,44 @@ Second challenge was how to formulate problem in a RL literature. Finally, we ha
 + torch = 1.11.0
 
 ## Setup
-### Dataset
-+ Download [MIND](https://www.microsoft.com/en-us/research/publication/mind-a-large-scale-dataset-for-news-recommendation/) large dataset
-+ Create 'dataset' directory
-+ Create 'train', 'dev', and 'test' directories inside 'dataset' directory
-+ Copy Training Set, paste it in 'train' directory
-+ Copy Validation Set, paste it in 'dev' directory
-+ Copy Test Set, paste it in 'test' directory
-### Dependencies
-+ Install Poetry -> pip install poetry
-+ Remove 'poetry.lock' file
-+ Install dependencies -> poetry install
-### Features
-+ Run 'features.py' -> python src/features.py
-### Server
-+ Run 'run.py' -> uvicorn run:app
-### Front-End
-+ Open 'front/code.html' in Chrome
-### MLFlow
-+ Run mlflow -> mlflow ui
+```console
+# create dataset directories
+md dataset
+md dataset\train, dataset\dev, dataset\test
+
+# download and extract train_set
+wget -O train.zip 'https://mind201910small.blob.core.windows.net/release/MINDlarge_train.zip'
+tar -xf train.zip -C dataset\train
+
+# download and extract dev_set
+wget -O dev.zip 'https://mind201910small.blob.core.windows.net/release/MINDlarge_dev.zip'
+tar -xf dev.zip -C dataset\dev
+
+# download and extract test_set
+wget -O test.zip 'https://mind201910small.blob.core.windows.net/release/MINDlarge_test.zip'
+tar -xf test.zip -C dataset\test
+
+# remove dataset zips
+rm train.zip, dev.zip, test.zip
+
+# install dependencies
+pip install poetry
+rm poetry.lock
+poetry install
+
+# create features
+python src/features.py
+
+# run server
+python uvicorn run:app
+
+# run front-end
+# example: user id is U687515
+start .\front\code.html
+
+# run mlflow
+mlflow ui
+```
 
 ## Screenshots
 <p align="center">
