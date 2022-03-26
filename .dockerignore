@@ -1,5 +1,10 @@
 src/features.py
-dataset/mean_f.csv
+dataset
+!dataset/behaviors.tsv
+!dataset/news.tsv
+!dataset/train/news.tsv
+!dataset/dev/news.tsv
+!dataset/test/news.tsv
 .gitignore
 basic_model.py
 __pycache__/
