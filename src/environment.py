@@ -78,7 +78,7 @@ class Environment:
         if abstarct.empty:
             abstarct = 'unavailable abstract!'
         else:
-            abstarct = abstarct.values[0]
+            abstarct = str(abstarct.values[0])
         return title, abstarct
 
     def __get_news_categories__(self) -> list:
