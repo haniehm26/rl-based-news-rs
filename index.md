@@ -1,4 +1,4 @@
-## Welcome to Recbrain Recommender System
+## News Recommender System
 
 This is a News Recommender System implemented in Python, using an Online Reinforcement Learning approach, based on [MIND](https://www.microsoft.com/en-us/research/publication/mind-a-large-scale-dataset-for-news-recommendation/) dataset.
 
@@ -8,6 +8,7 @@ In each iteration, user id must be submitted, then news title and news abstract 
 <div>
   <h4>User ID</h4>
   User id must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
+  <br>
   <input type="text" id="user-id" placeholder="U687515" value=""/>
   <button type="submit" id="submit-id">submit</button>
 </div>
