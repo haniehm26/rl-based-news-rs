@@ -13,25 +13,6 @@ User id must be something like: U687515, U192112, U629430, U449564, U24161, U797
 <input type="text" id="user-id" placeholder="User ID" value=""/>
 <button type="submit" id="submit-id">submit</button>
 
-<script>
-  let user_id = document.getElementById("user-id").value;
-  let api_url = `http://185.220.224.95:8000/recommend-news/${user_id}`;
-  fetch(api_url)
-        .then(
-            (res) => {
-                if (res.ok) {
-                    return res.json();
-                }
-            }
-        )
-        .then(
-            (res) => {
-                document.getElementById("news-title-p").innerHTML = res.news.title;
-                document.getElementById("news-abst-p").innerHTML = res.news.abstract;
-            }
-        )
-</script>
-
 
 #### News Title
 <p id="news-title-p">blah blah blah</p>
@@ -63,3 +44,69 @@ Hi :)
 ### Acknowledgement
 Special thanks to [Matin Zivdar](https://www.linkedin.com/in/matin-zivdar/) for his sincerely guidance and mentorship.
 Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantastic internship program, [Azin Azarkar](https://www.linkedin.com/in/azin-azarkar-8829b6183), [Yasin Orouskhani](https://www.linkedin.com/in/yasinorouskhani/), and everyone else who helped us through this project.
+
+<script>
+  document.getElementById("submit-id").onclick = submit_id;
+  document.getElementById("yes").onclick = submit_yes;
+  document.getElementById("no").onclick = submit_no;
+  
+  submit_id_btn = document.getElementById('submit-id')
+  yes_btn = document.getElementById('yes')
+  no_btn = document.getElementById('no')
+  
+  function submit_id(event) {
+    let user_id = document.getElementById("user-id").value;
+    recommend_news(user_id)
+    // to stable the result and prevent refreshing the window too fast
+    event.preventDefault();
+  }
+  
+  function submit_yes(event) {
+    let response = 1;
+    get_user_response(response)
+    // to stable the result and prevent refreshing the window too fast
+    event.preventDefault();
+  }
+  
+  function submit_no(event) {
+    let response = -1;
+    get_user_response(response)
+    // to stable the result and prevent refreshing the window too fast
+    event.preventDefault();
+  }
+  
+  function recommend_news(user_id) {
+    let api_url = `http://185.220.224.95:8000/recommend-news/${user_id}`;
+    // fetch url and make a get request
+    fetch(api_url)
+        .then(
+            (res) => {
+                // if request is okay return its json, otherwise display an error
+                if (res.ok) {
+                    return res.json();
+                }
+            }
+        )
+        .then(
+            (res) => {
+                // using two values of the returned 
+                document.getElementById("news-title-p").innerHTML = res.news.title;
+                document.getElementById("news-abst-p").innerHTML = res.news.abstract;
+            }
+        )
+  }
+  
+  function get_user_response(user_response) {
+    let api_url = `http://185.220.224.95:8000/response/${user_response}`;
+    // fetch url and make a get request
+    fetch(api_url)
+        .then(
+            (res) => {
+                // if request is okay return its json, otherwise display an error
+                if (res.ok) {
+                    return res.json();
+                }
+            }
+        )
+  }
+</script>
