@@ -5,6 +5,7 @@ This is a News Recommender System implemented in Python, using an Online Reinfor
 ### Model Structure
 In each iteration, user id must be submitted. Then, news title and news abstract will be presented. Next, the model needs user feedback.
 
+<hr>
 #### User ID
 User id must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
 
@@ -24,6 +25,7 @@ User id must be something like: U687515, U192112, U629430, U449564, U24161, U797
   <button type="botton" id="yes">Yes</button>  
   <button type="botton" id="no">No</button>
 </div>
+<hr>
 <br>
 
 
