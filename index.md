@@ -48,6 +48,7 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
   function submit_id(event) {
     let user_id = document.getElementById("user-id").value;
     document.getElementById("news-title-p").innerHTML = user_id;
+    event.preventDefault();
   }
   
   function submit_yes(event) {
