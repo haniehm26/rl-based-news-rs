@@ -4,9 +4,13 @@ This is a News Recommender System implemented in Python, using an Online Reinfor
 
 In each iteration, user id must be submitted, then news title and news abstract will be presented. Next, the model needs user feedback.
 
-**Notice**: User ids must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005
+User ids must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
 
-### Markdown
+### Model Structure
+Enter user id:
+<input type="text" id="user-id" value="U687515"/>
+<button type="submit" id="submit-id">submit</button>
+
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
