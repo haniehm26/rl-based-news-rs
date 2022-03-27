@@ -25,9 +25,8 @@ User id must be something like: U687515, U192112, U629430, U449564, U24161, U797
   <button type="botton" id="yes">Yes</button>  
   <button type="botton" id="no">No</button>
 </div>
-<hr>
 <br>
-
+<hr>
 
 ### Model Tracking
 ```markdown
