@@ -4,12 +4,13 @@ This is a News Recommender System implemented in Python, using an Online Reinfor
 
 In each iteration, user id must be submitted, then news title and news abstract will be presented. Next, the model needs user feedback.
 
-User ids must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
-
 ### Model Structure
-<h4>User ID</h4>
-<input type="text" id="user-id" placeholder="User ID" value=""/>
-<button type="submit" id="submit-id">submit</button>
+<div>
+  <h4>User ID</h4>
+  User id must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
+  <input type="text" id="user-id" placeholder="U687515" value=""/>
+  <button type="submit" id="submit-id">submit</button>
+</div>
 <div>
   <h4 id="news-title">News Title</h4>
   <p id="news-title-p">blah blah blah</p>
