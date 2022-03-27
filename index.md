@@ -15,7 +15,7 @@ User id must be something like: U687515, U192112, U629430, U449564, U24161, U797
 
 <script>
   let user_id = document.getElementById("user-id").value;
-  let api_url = `http://127.0.0.1:8000/recommend-news/${user_id}`;
+  let api_url = `http://185.220.224.95:8000/recommend-news/${user_id}`;
   fetch(api_url)
         .then(
             (res) => {
