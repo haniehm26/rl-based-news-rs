@@ -1,8 +1,8 @@
-## Welcome to Recbrain News Recommender System
+## Welcome to Recbrain Recommender System
 
-You can use the [editor on GitHub](https://github.com/haniehm26/rl-based-news-rs/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This is a News Recommender System implemented in Python, using an Online Reinforcement Learning approach, based on [MIND](https://www.microsoft.com/en-us/research/publication/mind-a-large-scale-dataset-for-news-recommendation/) dataset.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+In each iteration, user id must be submitted, then news title and news abstract will be presented. Next, the model needs user feedback. User ids must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005
 
 ### Markdown
 
