@@ -49,19 +49,19 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
 <script>
   function submit_id(event) {
     let user_id = document.getElementById("user-id").value;
-    recommend_news(user_id)
     document.getElementById("news-title-p").innerHTML = user_id;
+    recommend_news(user_id);
   }
   
   function submit_yes(event) {
     let response = 1;
-    get_user_response(response)
+    get_user_response(response);
     document.getElementById("news-title-p").innerHTML = response;
   }
   
   function submit_no(event) {
     let response = -1;
-    get_user_response(response)
+    get_user_response(response);
     document.getElementById("news-title-p").innerHTML = response;
   }
   
