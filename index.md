@@ -3,10 +3,10 @@
 This is a News Recommender System implemented in Python, using an Online Reinforcement Learning approach, based on [MIND](https://www.microsoft.com/en-us/research/publication/mind-a-large-scale-dataset-for-news-recommendation/) dataset.
 
 ### Model Structure
-In each iteration, user id must be submitted, then news title and news abstract will be presented. Next, the model needs user feedback.
+In each iteration, user id must be submitted. Then, news title and news abstract will be presented. Next, the model needs user feedback.
 
 #### User ID
-User id must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ... <br>
+User id must be something like: U687515, U192112, U629430, ... <br>
 <input type="text" id="user-id" placeholder="User ID" value=""/>
 <button type="submit" id="submit-id">submit</button>
 
@@ -25,6 +25,8 @@ User id must be something like: U687515, U192112, U629430, U449564, U24161, U797
 ### Model Tracking
 ```markdown
 Hi :)
+Hi :)
+Hi :)
 ```
 
 ### Contact
@@ -34,5 +36,5 @@ Hi :)
 + [Amir Asrzad](https://www.linkedin.com/in/amir-asrzad/)
 
 ### Acknowledgement
-Special thanks to [Matin Zivdar](https://www.linkedin.com/in/matin-zivdar/) for his sincerely guidance and mentorship.<br>
+Special thanks to [Matin Zivdar](https://www.linkedin.com/in/matin-zivdar/) for his sincerely guidance and mentorship.
 Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantastic internship program, [Azin Azarkar](https://www.linkedin.com/in/azin-azarkar-8829b6183), [Yasin Orouskhani](https://www.linkedin.com/in/yasinorouskhani/), and everyone else who helped us through this project.
