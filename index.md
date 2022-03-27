@@ -61,7 +61,7 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
   }
   
   function recommend_news(user_id) {
-    let api_url = `https://newsrecommender:80/recommend-news/${user_id}`;
+    let api_url = `https://185.220.224.94:8000/recommend-news/${user_id}`;
     fetch(api_url)
         .then(
             (res) => {
@@ -79,7 +79,7 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
   }
   
   function get_user_response(user_response) {
-    let api_url = `https://newsrecommender:80/response/${user_response}`;
+    let api_url = `https://185.220.224.94:8000/response/${user_response}`;
     fetch(api_url)
         .then(
             (res) => {
