@@ -6,12 +6,13 @@ This is a News Recommender System implemented in Python, using an Online Reinfor
 In each iteration, user id must be submitted. Then, news title and news abstract will be presented. Next, the model needs user feedback.
 
 <hr>
+
 #### User ID
 User id must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
 
 
 <input type="text" id="user-id" placeholder="User ID" value=""/>
-<button type="submit" id="submit-id">submit</button>
+<button type="submit" id="submit-id" onclick="submit_id()">submit</button>
 
 
 #### News Title
@@ -22,8 +23,8 @@ User id must be something like: U687515, U192112, U629430, U449564, U24161, U797
 
 #### Read More?
 <div>
-  <button type="botton" id="yes">Yes</button>  
-  <button type="botton" id="no">No</button>
+  <button type="botton" id="yes" onclick="submit_yes()">Yes</button>  
+  <button type="botton" id="no" onclick="submit_no()">No</button>
 </div>
 <br>
 <hr>
@@ -46,10 +47,6 @@ Special thanks to [Matin Zivdar](https://www.linkedin.com/in/matin-zivdar/) for 
 Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantastic internship program, [Azin Azarkar](https://www.linkedin.com/in/azin-azarkar-8829b6183), [Yasin Orouskhani](https://www.linkedin.com/in/yasinorouskhani/), and everyone else who helped us through this project.
 
 <script>
-  document.getElementById("submit-id").onclick = submit_id;
-  document.getElementById("yes").onclick = submit_yes;
-  document.getElementById("no").onclick = submit_no;
-  
   submit_id_btn = document.getElementById('submit-id')
   yes_btn = document.getElementById('yes')
   no_btn = document.getElementById('no')
