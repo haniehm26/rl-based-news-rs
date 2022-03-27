@@ -10,7 +10,7 @@ In each iteration, user id must be submitted. Then, news title and news abstract
 #### User ID
 User ID must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
 
-<input type="text" id="user-id" placeholder="User ID" value=""/>
+<input type="text" id="user-id-input" placeholder="User ID" value=""/>
 <button type="submit" id="submit-id" onclick="submit_id()">submit</button>
 
 #### News Title
@@ -46,9 +46,8 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
 
 <script>
   function submit_id(event) {
-    let user_id = document.getElementById("user-id");
-    console.log(user_id);
-    console.log(user_id.value);
+    let user_id = document.getElementById("user-id-input").value;
+    recommend_news(user_id);
     document.getElementById("news-title-p").innerHTML = user_id.value;
   }
   
