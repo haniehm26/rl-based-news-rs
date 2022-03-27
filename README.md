@@ -77,6 +77,7 @@ mlflow ui
 Docker image is available at [this docker hub repository](https://hub.docker.com/repository/docker/haniehm26/recbrain)
 ```console
 docker pull haniehm26/recbrain:latest
+
 # port 8000 -> server
 # port 5000 -> mlflow
 docker run -p 5000:5000 -p 8000:8000 recbrain:latest
