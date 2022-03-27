@@ -7,10 +7,19 @@ In each iteration, user id must be submitted, then news title and news abstract 
 User ids must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
 
 ### Model Structure
-Enter user id:
-<input type="text" id="user-id" value="U687515"/>
+<input type="text" id="user-id" placeholder="User ID" value=""/>
 <button type="submit" id="submit-id">submit</button>
-
+<div>
+    <h4 id="news-title">News Title</h4>
+    <p id="news-title-p">blah blah blah</p>
+    <h4 id="news-abst">News Abstract</h4>
+    <p id="news-abst-p">blah blah blah</p>
+</div>
+<div>
+    <h4 id="user-response">Read More?</h4>
+    <button type="botton" id="yes">Yes</button>  
+    <button type="botton" id="no">No</button>
+</div>
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
