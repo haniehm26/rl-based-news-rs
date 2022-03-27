@@ -10,23 +10,22 @@ In each iteration, user id must be submitted. Then, news title and news abstract
 #### User ID
 User id must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
 
+<form>
+  <input type="text" id="user-id" placeholder="User ID" value=""/>
+  <button type="submit" id="submit-id" onclick="submit_id()">submit</button>
 
-<input type="text" id="user-id" placeholder="User ID" value=""/>
-<button type="submit" id="submit-id" onclick="submit_id()">submit</button>
+  <h4>News Title</h4>
+  <p id="news-title-p">blah blah blah</p>
 
+  <h4>News Abstract</h4>
+  <p id="news-abst-p">blah blah blah</p>
 
-#### News Title
-<p id="news-title-p">blah blah blah</p>
-
-#### News Abstract
-<p id="news-abst-p">blah blah blah</p>
-
-#### Read More?
-<div>
-  <button type="botton" id="yes" onclick="submit_yes()">Yes</button>  
-  <button type="botton" id="no" onclick="submit_no()">No</button>
-</div>
-<br>
+  <h4>Read More?</h4>
+  <div>
+    <button type="botton" id="yes" onclick="submit_yes()">Yes</button>  
+    <button type="botton" id="no" onclick="submit_no()">No</button>
+  </div>
+</form>
 <hr>
 
 ### Model Tracking
@@ -49,8 +48,8 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
 <script>
   function submit_id(event) {
     let user_id = document.getElementById("user-id").value;
-    document.getElementById("news-title-p").innerHTML = user_id;
     recommend_news(user_id);
+    document.getElementById("news-title-p").innerHTML = user_id;
   }
   
   function submit_yes(event) {
