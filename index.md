@@ -13,6 +13,25 @@ User id must be something like: U687515, U192112, U629430, U449564, U24161, U797
 <input type="text" id="user-id" placeholder="User ID" value=""/>
 <button type="submit" id="submit-id">submit</button>
 
+<script>
+  let user_id = document.getElementById("user-id").value;
+  let api_url = `http://127.0.0.1:8000/recommend-news/${user_id}`;
+  fetch(api_url)
+        .then(
+            (res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+            }
+        )
+        .then(
+            (res) => {
+                document.getElementById("news-title-p").innerHTML = res.news.title;
+                document.getElementById("news-abst-p").innerHTML = res.news.abstract;
+            }
+        )
+</script>
+
 
 #### News Title
 <p id="news-title-p">blah blah blah</p>
