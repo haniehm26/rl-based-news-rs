@@ -8,7 +8,7 @@ In each iteration, user id must be submitted. Then, news title and news abstract
 <hr>
 
 #### User ID
-User id must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
+User ID must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...
 
 <input type="text" id="user-id" placeholder="User ID" value=""/>
 <button type="submit" id="submit-id" onclick="submit_id()">submit</button>
