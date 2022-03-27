@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to Recbrain News Recommender System
 
 You can use the [editor on GitHub](https://github.com/haniehm26/rl-based-news-rs/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
@@ -23,7 +23,7 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+[Link](url) and ![Image](https://github.com/haniehm26/rl-based-news-rs/blob/master/images/logo.png)
 ```
 
 For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
