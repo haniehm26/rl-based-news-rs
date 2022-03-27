@@ -5,50 +5,30 @@ This is a News Recommender System implemented in Python, using an Online Reinfor
 ### Model Structure
 In each iteration, user id must be submitted, then news title and news abstract will be presented. Next, the model needs user feedback.
 
-#### User ID
-User id must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ...<br>
-<input type="text" id="user-id" placeholder="U687515" value=""/>
+##### User ID
+User id must be something like: U687515, U192112, U629430, U449564, U24161, U79744, U219005, ... <br>
+<input type="text" id="user-id" placeholder="User ID" value=""/>
 <button type="submit" id="submit-id">submit</button>
 
-#### News Title
+##### News Title
 <p id="news-title-p">blah blah blah</p>
 
-#### News Abstract
+##### News Abstract
 <p id="news-abst-p">blah blah blah</p>
 
-#### Read More?
+##### Read More?
 <div>
   <button type="botton" id="yes">Yes</button>  
   <button type="botton" id="no">No</button>
 </div>
-<br>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+### Model Tracking
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](https://github.com/haniehm26/rl-based-news-rs/blob/master/images/logo.png)
+Hi :)
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/haniehm26/rl-based-news-rs/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Contact
++ [Hanieh Mahdavi](https://www.linkedin.com/in/hanieh-mahdavi)
++ [Mohammadamin Farajzadeh](https://www.linkedin.com/in/mohammadamin-farajzadeh-bb050919a)
++ [Mahta Zarean](https://www.linkedin.com/in/mahta-zarean-9b7184198)
++ [Amir Asrzad](https://www.linkedin.com/in/amir-asrzad/)
