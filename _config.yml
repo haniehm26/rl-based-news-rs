@@ -1,4 +1,4 @@
 theme: jekyll-theme-minimal
 title: Recbrain
 description: News Recommender System based on a Reinforcement Learning Model
-logo: https://github.com/haniehm26/rl-based-news-rs/blob/master/images/logo.png
+logo: assets/logo.png
