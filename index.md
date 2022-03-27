@@ -65,11 +65,9 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
   
   function recommend_news(user_id) {
     let api_url = `http://185.220.224.95:8000/recommend-news/${user_id}`;
-    // fetch url and make a get request
     fetch(api_url)
         .then(
             (res) => {
-                // if request is okay return its json, otherwise display an error
                 if (res.ok) {
                     return res.json();
                 }
@@ -77,7 +75,6 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
         )
         .then(
             (res) => {
-                // using two values of the returned 
                 document.getElementById("news-title-p").innerHTML = res.news.title;
                 document.getElementById("news-abst-p").innerHTML = res.news.abstract;
             }
@@ -86,11 +83,9 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
   
   function get_user_response(user_response) {
     let api_url = `http://185.220.224.95:8000/response/${user_response}`;
-    // fetch url and make a get request
     fetch(api_url)
         .then(
             (res) => {
-                // if request is okay return its json, otherwise display an error
                 if (res.ok) {
                     return res.json();
                 }
