@@ -47,29 +47,20 @@ Special thanks to [Matin Zivdar](https://www.linkedin.com/in/matin-zivdar/) for 
 Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantastic internship program, [Azin Azarkar](https://www.linkedin.com/in/azin-azarkar-8829b6183), [Yasin Orouskhani](https://www.linkedin.com/in/yasinorouskhani/), and everyone else who helped us through this project.
 
 <script>
-  submit_id_btn = document.getElementById('submit-id')
-  yes_btn = document.getElementById('yes')
-  no_btn = document.getElementById('no')
-  
   function submit_id(event) {
     let user_id = document.getElementById("user-id").value;
+    document.getElementById("news-title-p").innerHTML = "Hanieh";
     recommend_news(user_id)
-    // to stable the result and prevent refreshing the window too fast
-    event.preventDefault();
   }
   
   function submit_yes(event) {
     let response = 1;
     get_user_response(response)
-    // to stable the result and prevent refreshing the window too fast
-    event.preventDefault();
   }
   
   function submit_no(event) {
     let response = -1;
     get_user_response(response)
-    // to stable the result and prevent refreshing the window too fast
-    event.preventDefault();
   }
   
   function recommend_news(user_id) {
