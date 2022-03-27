@@ -48,7 +48,7 @@ Many thanks to [Rahnema College](https://rahnemacollege.com/) for their fantasti
   function submit_id(event) {
     let user_id = document.getElementById("user-id-input").value;
     recommend_news(user_id);
-    document.getElementById("news-title-p").innerHTML = user_id.value;
+    document.getElementById("news-title-p").innerHTML = user_id;
   }
   
   function submit_yes(event) {
