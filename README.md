@@ -78,9 +78,9 @@ Docker image is available at [this docker hub repository](https://hub.docker.com
 ```console
 docker pull haniehm26/recbrain:latest
 
-# port 8000 -> server
-# port 5000 -> mlflow
-docker run -p 5000:5000 -p 8000:8000 recbrain:latest
+# port 80 -> server
+# port 50 -> mlflow
+docker run -p 50:50 -p 80:80 recbrain:latest
 
 # run front-end
 # example: user id is U687515
