@@ -13,7 +13,7 @@ RUN apt-get update \
     && poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
-CMD ["uvicorn", "run:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8000"] \
+CMD ["uvicorn", "run:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8000", "--ssl-keyfile", "./key.pem", "--ssl-certfile", "./cert.pem"] \
     && ["mlflow", "ui", "--host", "0.0.0.0", "--port", "5000"] 
 
 
