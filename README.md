@@ -10,7 +10,6 @@
 - [Features](#features)
 - [Technologies](#technologies)
 - [Setup](#setup)
-  - [Docker](#docker)
 - [Screenshots](#screenshots)
 - [About Us](#about-us)
 - [Acknowledgement](#acknowledgement)
@@ -64,9 +63,12 @@ poetry install
 
 # create features
 python src/features.py
+```
 
+### Run Server with HTTP Protocol
+```console
 # run server
-python uvicorn run:app
+uvicorn run:app --proxy-headers --host '0.0.0.0' --port 8000
 
 # run front-end
 # example: user id is U687515
@@ -75,6 +77,20 @@ start .\front\code.html
 # run mlflow
 mlflow ui
 ```
+
+### Run Server with HTTPS Protocol
+```console
+# run server
+uvicorn run:app --proxy-headers --host '0.0.0.0' --port 8000 --ssl-keyfile './key.pem' --ssl-certfile './cert.pem'
+
+# run front-end
+# example: user id is U687515
+start .\front\code.html
+
+# run mlflow
+mlflow ui
+```
+
 ### Docker
 Docker image is available at [this docker hub repository](https://hub.docker.com/repository/docker/haniehm26/recbrain)
 ```console
