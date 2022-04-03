@@ -10,7 +10,6 @@
 - [Features](#features)
 - [Technologies](#technologies)
 - [Setup](#setup)
-  - [Docker](#docker)
 - [Screenshots](#screenshots)
 - [About Us](#about-us)
 - [Acknowledgement](#acknowledgement)
