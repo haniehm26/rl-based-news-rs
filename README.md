@@ -109,14 +109,15 @@ start .\front\code.html
 
 ## Screenshots
 <p align="center">
-    <img src="images/front.png" width="80%" height="100%">
-  <h4 align="center">Project Front-End Sample</h4>
+    <img src="images/front.gif" width="100%" height="100%">
+  <h4 align="center">Project Front-End & Back-End Sample</h4>
   </p>
   <br>
 <p align="center">
-    <img src="images/mlflow-metrics.png" width="80%" height="100%">
+    <img src="images/mlflow.gif" width="100%" height="100%">
   <h4 align="center">Reward Cumulative Sum Metric Chart</h4>
   </p>
+  <br>
   
 ## About Us
 We are RecBrain, four data science enthusiasts:
