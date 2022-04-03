@@ -40,8 +40,10 @@ function submit_response(event) {
 }
 
 function recommend_news(user_id) {
-    // let api_url = `https://185.220.224.94:8000/recommend-news/${user_id}`;
-    let api_url = `http://185.220.224.72:8000/recommend-news/${user_id}`;
+    let api_url = `http://185.220.224.72:8000/recommend-news/${user_id}`; // Abrarvan
+    // let api_url = `http://127.0.0.1:8000/recommend-news/${user_id}`; // localhost-http
+    // let api_url = `https://127.0.0.1:8000/recommend-news/${user_id}`; // localhost-https
+
     // fetch url and make a get request
     fetch(api_url)
         .then(
@@ -62,8 +64,10 @@ function recommend_news(user_id) {
 }
 
 function get_user_response(user_response) {
-    // let api_url = `https://185.220.224.94:8000/response/${user_response}`;
-    let api_url = `http://185.220.224.72:8000/response/${user_response}`;
+    let api_url = `http://185.220.224.72:8000/response/${user_response}`; // Abrarvan
+    // let api_url = `http://127.0.0.1:8000/response/${user_response}`; // localhost-http
+    // let api_url = `https://127.0.0.1:8000/response/${user_response}`; // localhost-https
+    
     // fetch url and make a get request
     fetch(api_url)
         .then(
