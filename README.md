@@ -122,7 +122,7 @@ start .\front\code.html
 ## About Us
 We are RecBrain, four data science enthusiasts:
 + [Hanieh Mahdavi](https://github.com/haniehm26)
-+ [Mohammadamin Farajzadeh](https://github.com/mafzs)
++ [Mohammadamin Farajzadeh](https://github.com/mohamadamin-fjz)
 + [Mahta Zarean](https://github.com/mahtaz)
 + [Amir Asrzad](https://github.com/AMIRASRZAD)
 
